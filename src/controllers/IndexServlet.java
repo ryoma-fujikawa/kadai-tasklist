@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,15 +39,15 @@ public class IndexServlet extends HttpServlet {
 
         em.close();
 
-//        request.setAttribute("tasks", tasks);
+        request.setAttribute("tasks", tasks);
 
 //        if(request.getSession().getAttribute("flush") != null) {
 //            request.setAttribute("flush", request.getSession().getAttribute("flush"));
 //            request.getSession().removeAttribute("flush");
 //        }
 //
-//        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/index.jsp");
-//        rd.forward(request, response);
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/index.jsp");
+        rd.forward(request, response);
     }
 
 }
